@@ -1,5 +1,7 @@
 #!/bin/sh
 
+yum install libxml2-devel
+
 HERE=`pwd`
 mkdir -p ${HOME}/opt/clang-6.0.0
 (
@@ -15,7 +17,7 @@ mkdir -p ${HOME}/opt/clang-6.0.0
     mv compiler-rt-6.0.0.src llvm/projects/compiler-rt
     mkdir build
     cd build
-    ASM=as cmake3 -DCMAKE_INSTALL_PREFIX=${HOME}/opt/clang-6.0.0 -DLLVM_LINK_LLVM_DYLIB=ON -DLLVM_BUILD_LLVM_DYLIB=ON -G "Unix Makefiles" ../llvm
+    cmake3 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${HOME}/opt/clang-6.0.0 -DLLVM_LINK_LLVM_DYLIB=ON -DLLVM_BUILD_LLVM_DYLIB=ON -G "Unix Makefiles" ../llvm
     make install
 )
 cd "${HERE}"
