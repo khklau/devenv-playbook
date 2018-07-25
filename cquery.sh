@@ -10,7 +10,7 @@ mkdir -p ${HOME}/opt
     mkdir build
     cd build
     (
-	CXXFLAGS="-Wl,--rpath,/home/kean/opt/clang-6.0.0/lib" cmake .. \
+	CXXFLAGS="-std=c++14 -Wl,--rpath,/home/kean/opt/clang-6.0.0/lib" cmake .. \
 		-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
 		-DCMAKE_BUILD_TYPE=Release \
 		-DCMAKE_INSTALL_PREFIX=${HOME}/opt/cquery-v20180718 \
